@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const catalogRouter = require("./routes/catalog");
 
 var app = express();
 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use("/catalog", catalogRouter);
 
 mongoose.set("strictQuery", false);
 const dev_db_url = "mongodb+srv://mongo:mongo@cluster0.xgodvg1.mongodb.net/local_library?retryWrites=true&w=majority&appName=Cluster0";
